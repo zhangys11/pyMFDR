@@ -1,0 +1,12 @@
+LICENCE
+pyproject.toml
+setup.cfg
+src/pyMFDR/__init__.py
+src/pyMFDR/archetypes.py
+src/pyMFDR/lae.py
+src/pyMFDR/mfdr.py
+src/pyMFDR.egg-info/PKG-INFO
+src/pyMFDR.egg-info/SOURCES.txt
+src/pyMFDR.egg-info/dependency_links.txt
+src/pyMFDR.egg-info/requires.txt
+src/pyMFDR.egg-info/top_level.txt
