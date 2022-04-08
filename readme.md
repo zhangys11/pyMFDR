@@ -28,7 +28,7 @@ Use the following sample code to use the package:
 
   # evaluate the dimensionality reduction quality by various metrics
   mfdr.evaluate_dr(X,W,Xr)
-  
+
   # visualize H
   mfdr.visualize_dictionary(H)
 
