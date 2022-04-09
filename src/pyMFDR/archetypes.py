@@ -10,6 +10,15 @@ Created on Sun Jan 27 13:39:27 2019
 This class is developed based on "Archetypa Analysis" by Adele Cutler and Leo
 Breiman, Technometrics, November 1994, Vol.36, No.4, pp. 338-347
 
+---
+
+CSIRO Open Source Software Licence (Based on MIT/BSD Open Source Licence)
+
+This licence releases the Software as 'open source'. It reflects the terms of the BSD/MIT open source software licences, with a specific CSIRO liability disclaimer included. This means that the Software will be free for use, modification and distribution, for both commercial and non commercial purposes, provided it is attributed to CSIRO and subject to the additional terms that exclude CSIRO's liability.
+The Software is licensed subject to any additional conditions notified as part of the download process, including under the Supplementary Licence distributed with the Software. The Supplementary Licence may identify third party components that are licensed separately (including where distributed as part of the Software, or required in order to operate the Software). You agree to comply with the separate terms of these third party licences as a condition for accessing the Software.
+You are solely responsible for determining if the Software meets your own requirements for use. Subject to law, the Software is provided 'as-is'. CSIRO makes no representations, warranties or undertakings of any kind, including regarding accuracy, defects, title, merchantability, fitness for a purpose, or non-infringement.
+If you require additional licence rights, you should contact the relevant area in CSIRO. 
+
 """
 
 import numpy as np
