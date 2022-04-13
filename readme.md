@@ -21,7 +21,7 @@ Use the following sample code to use the package:
   y = df.iloc[:,1].values.ravel() # first col is index and not used in this study
 
   # get a list of available MFDR algorithms
-  mfdr.get_algorithms() # it will ouptut ['PCA', 'NMF', 'LAE', 'RP', 'VQ', 'AA', 'ICA']
+  mfdr.get_algorithms() # it will ouptut ['PCA', 'NMF', 'LAE', 'RP', 'SRP', 'VQ', 'AA', 'ICA']
 
   # Run PCA on X. It will return W, H, Xr and the inner algorithm object.
   W,H,Xr,o = mfdr.mf(X, 3, alg = 'PCA', display = False) 

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pyMFDR
-Version: 0.0.6
+Version: 0.0.8
 Summary: A python package for MF (matrix factorization) based DR (dimensionality reduction) algorithms.
 Home-page: https://github.com/zhangys11/pyMFDR
 Author: Yinsheng Zhang (Ph.D.)
@@ -46,7 +46,7 @@ Use the following sample code to use the package:
 
   # evaluate the dimensionality reduction quality by various metrics
   mfdr.evaluate_dr(X,W,Xr)
-  
+
   # visualize H
   mfdr.visualize_dictionary(H)
 
