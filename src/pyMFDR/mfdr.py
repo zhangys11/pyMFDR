@@ -367,7 +367,7 @@ def measure_time(X, alg = 'PCA', display = True, r = list(range(1, 21)), repeat 
         plt.gca().xaxis.set_major_locator(MultipleLocator(5))
         plt.show()
 
-    return TS    
+    return TS
 
 
 def visualize_reconstruction(X, Xr, N):
@@ -378,26 +378,33 @@ def visualize_reconstruction(X, Xr, N):
     for idx in range(N):
         visualize_one_sample_reconstruction(X, Xr, idx)
     
-def visualize_one_sample_reconstruction(X, Xr, idx):
+def visualize_one_sample_reconstruction(X, Xr, idx = 0, figsize = (50,10)):
     '''
-    Visualize the 1st sample before and after DR side by side.
+    Visualize the n-th(default 1st) sample before and after DR side by side.
     '''
     
     assert(X.shape == Xr.shape)
     assert(idx < X.shape[0])
 
     # original
-    plt.figure(figsize=(50, 12))
+    plt.figure(figsize=figsize)
     
-    ax = plt.subplot(1, 2, 1)
+    ax = plt.subplot(1, 1, 1)
     ax.scatter(list(range(X.shape[1])), list(X[idx]))        
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
-    
+
+    print("X[" + str(idx) + "]")
+    plt.show()
+
+
+    plt.figure(figsize=figsize)
+
     # reconstruction
-    ax = plt.subplot(1, 2, 2)
+    ax = plt.subplot(1, 1, 1)
     ax.scatter(list(range(Xr.shape[1])), list(Xr[idx]))        
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
 
+    print("Xr[" + str(idx) + "]")
     plt.show()
