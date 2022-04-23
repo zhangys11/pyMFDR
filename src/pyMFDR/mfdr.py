@@ -47,7 +47,7 @@ def mf(X, k, alg = 'PCA', display = True, verbose = 0):
     o : the inner algorithm instance
     '''
     if (alg == ALGS[0]): # in statistics, PCA is a factor extraction method for FA. 
-        pca = PCA(n_components = k) # keep the first K components
+        pca = PCA(n_components = k, svd_solver='arpack') # ARPACK is a collection of Fortran77 subroutines designed to solve large scale eigenvalue problems.
         W = pca.fit_transform(X)
         Xr = pca.inverse_transform(W)
         H = pca.components_
@@ -63,7 +63,9 @@ def mf(X, k, alg = 'PCA', display = True, verbose = 0):
             
     elif (alg == ALGS[1]):
 
-        nmf = NMF(n_components=k, init='nndsvda') #  NNDSVDa（全部零值替换为所有元素的平均值）和 NNDSVDar（零值替换为比数据平均值除以100 小的随机扰动）
+        # solver: default solve is cd (coordinate descent), the other is mu (Multiplicative Update solver). sd is faster than mu.
+        # init: NNDSVDa（全部零值替换为所有元素的平均值）和 NNDSVDar（零值替换为比数据平均值除以100 小的随机扰动）
+        nmf = NMF(n_components=k, init='nndsvdar', shuffle = True)
         W = nmf.fit_transform(X)
         H = nmf.components_ 
         Xr = nmf.inverse_transform(W)
@@ -74,7 +76,7 @@ def mf(X, k, alg = 'PCA', display = True, verbose = 0):
             errors = []
             r = range(1, min(15, X.shape[1]) ,1)
             for k in r:
-                nmf = NMF(n_components=k, init='nndsvda')
+                nmf = NMF(n_components=k, init='nndsvdar', shuffle = True)
                 nmf.fit(X)
                 errors.append(nmf.reconstruction_err_)    
                 
