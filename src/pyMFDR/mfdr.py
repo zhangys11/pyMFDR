@@ -159,10 +159,14 @@ def mf(X, k, alg = 'PCA', display = True, verbose = 0):
             plt.show()
     
     elif (alg == ALGS[5]):
+
         kmeans = KMeans(n_clusters=k)
-        W = kmeans.fit_transform(X)
-        #W = kmeans.predict(X)
-        H = kmeans.cluster_centers_ 
+
+        # W = kmeans.fit_transform(X) # NOTE: transform() returns distance matrix from centroids.       
+        W = kmeans.fit_predict(X) # returns class id array
+        W = np.eye(k)[W] # convert W to one-hot encoding matrix
+
+        H = kmeans.cluster_centers_
         #ohe = OneHotEncoder()
         #W = ohe.fit_transform(W.reshape(-1, 1)).A
         

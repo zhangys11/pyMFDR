@@ -1,4 +1,5 @@
 LICENCE
+README.md
 pyproject.toml
 setup.cfg
 src/pyMFDR/__init__.py
