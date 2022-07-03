@@ -90,6 +90,16 @@ def mf(X, k, alg = 'PCA', display = True, verbose = 0):
             
     elif (alg == ALGS[2]):            
         
+        '''
+        An autoencoder, is an artificial neural network used for learning efficient codings.
+        The aim of an autoencoder is to learn a representation (encoding) for a set of data, typically for the purpose of dimensionality reduction.
+        An autoencoder is unsupervised since it's not using labeled data. The goal is to minimize reconstruction error based on a loss function, such as the mean squared error:
+
+        $\mathcal{L}(\mathbf{x},\mathbf{x'})=\|\mathbf{x}-\mathbf{x'}\|^2=\|\mathbf{x}-f(\mathbf{W'}(f(\mathbf{Wx}+\mathbf{b}))+\mathbf{b'})\|^2$
+
+        AutoEncoder (as well as other NN models, such as MLP) is sensitive to feature scaling, so it is highly recommended to scale your data.
+        '''
+
         ae = LAE(n_components=k)
         W = ae.fit_transform(X, verbose = verbose)
         H = ae.components_ 
@@ -326,6 +336,11 @@ def visualize_dictionary(H):
     plt.show()
     
 def measure_time_all(X, repeat = 5):
+
+    if X.min() < 0:
+        print('Because some algorithms (e.g., NMF) require non-negative input, we shift up X by | X.min() |')
+        X = X - X.min()
+
     TSS = {}
     for alg in ALGS:
         TSS[alg] = measure_time(X, alg, repeat = repeat)
@@ -414,3 +429,24 @@ def visualize_one_sample_reconstruction(X, Xr, idx = 0, figsize = (50,10)):
 
     print("Xr[" + str(idx) + "]")
     plt.show()
+
+def compare_all(X, k = 3):
+    '''
+    Compare all MFDR algorithms
+    '''
+
+    if X.min() < 0:
+        print('Because some algorithms (e.g., NMF) require non-negative input, we shift up X by | X.min() |')
+        X = X - X.min()
+
+    for alg in ALGS:
+        
+        print()
+        print()
+        print('======= ', alg , ' =======')
+        print()
+        
+        W,H,Xr,o = mf(X, k, alg = alg, display = False)
+        evaluate_dr(X,W,Xr)    
+        visualize_dictionary(H)    
+        visualize_one_sample_reconstruction(X, Xr) 
