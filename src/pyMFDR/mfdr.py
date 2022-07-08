@@ -88,7 +88,7 @@ def mf(X, k, alg = 'PCA', display = True, verbose = 0):
             plt.gca().xaxis.set_major_locator(MultipleLocator(1))
             plt.show()
             
-    elif (alg == ALGS[2]):            
+    elif (alg == ALGS[2]):
         
         '''
         An autoencoder, is an artificial neural network used for learning efficient codings.
