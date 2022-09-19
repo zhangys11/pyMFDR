@@ -2,7 +2,7 @@
 
 ### A python package for MF (matrix factorization) based DR (dimensionality reduction) algorithms.   
 
-This repo contains the source and research materials for the article "Matrix Factorization Based Dimensionality Reduction Algorithms - A Comparative Study on Spectroscopic Profiling Data" by Zhang, et al. (Analytical Chemistry, 2022, Under Revision)
+This repo contains the source and research materials for the article "Matrix Factorization Based Dimensionality Reduction Algorithms - A Comparative Study on Spectroscopic Profiling Data" by Zhang, et al. (Analytical Chemistry, 2022, DOI: 10.1021/acs.analchem.2c01922, https://pubs.acs.org/action/showCitFormats?doi=10.1021/acs.analchem.2c01922)
 
 <pre>
   Content of repo
