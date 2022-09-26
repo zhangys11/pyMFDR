@@ -22,7 +22,12 @@ from .lae import *
 #import imp
 #imp.reload(lae) # only use in debug / dev mode
 
-ALGS = ['PCA','NMF','LAE','RP','SRP','VQ','AA','ICA']
+# sum_bin and tri_bin are also MF DR algs, where H is 
+# [[111100000000],[000011110000],[000000001111]] or 
+# [[123210000000000],[000001232100000],[000000000012321]].
+# max_bin is adaptive, depending on the index of max element.
+ALGS = ['PCA','NMF','LAE','RP','SRP','VQ','AA','ICA'] 
+
 
 def get_algorithms():
     return ALGS
