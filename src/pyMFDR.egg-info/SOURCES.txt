@@ -6,6 +6,7 @@ src/pyMFDR/__init__.py
 src/pyMFDR/archetypes.py
 src/pyMFDR/lae.py
 src/pyMFDR/mfdr.py
+src/pyMFDR/pca.py
 src/pyMFDR.egg-info/PKG-INFO
 src/pyMFDR.egg-info/SOURCES.txt
 src/pyMFDR.egg-info/dependency_links.txt

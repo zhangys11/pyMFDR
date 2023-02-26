@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pyMFDR
-Version: 0.1.3
+Version: 0.1.4
 Summary: A python package for MF (matrix factorization) based DR (dimensionality reduction) algorithms.
 Home-page: https://github.com/zhangys11/pyMFDR
 Author: Yinsheng Zhang (Ph.D.)
@@ -16,11 +16,22 @@ License-File: LICENCE
 
 # pyMFDR
 
-A python package for MF (matrix factorization) based DR (dimensionality reduction) algorithms. 
+### A python package for MF (matrix factorization) based DR (dimensionality reduction) algorithms.   
+
+This repo contains the source and research materials for the article "Matrix Factorization Based Dimensionality Reduction Algorithms - A Comparative Study on Spectroscopic Profiling Data" by Zhang, et al. (Analytical Chemistry, 2022, DOI: 10.1021/acs.analchem.2c01922, https://pubs.acs.org/action/showCitFormats?doi=10.1021/acs.analchem.2c01922)
+
+<pre>
+  Content of repo
+  ├── src : source code
+  ├── data : contains the dataset (.csv) used for the research
+  └── notebooks : contains the jupyter notebook for the research
+</pre>
 
 # Installation 
 
 pip install pyMFDR
+
+
 
 # How to use 
 
