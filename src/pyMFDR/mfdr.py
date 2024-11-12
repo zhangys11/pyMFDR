@@ -99,7 +99,7 @@ def mf(X, k, alg = 'PCA', display = True, verbose = 0):
         try:
             from .lae import LAE
         except:
-            raise Exception('LAE requires TF to be installed. \nSkipping LAE.')
+            raise Exception('LAE requires TF to be installed.')
             
         ae = LAE(n_components=k)
         W = ae.fit_transform(X, verbose = verbose)
