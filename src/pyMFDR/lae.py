@@ -1,7 +1,5 @@
 from keras.layers import Input, Dense
 from keras.models import Model
-import numpy as np
-from sklearn.utils import shuffle
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras import regularizers
 from sklearn.preprocessing import StandardScaler

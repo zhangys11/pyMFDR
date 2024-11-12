@@ -3,21 +3,13 @@ from pyDRMetrics.calculate_recon_error import calculate_recon_error
 from sklearn.decomposition import PCA, NMF, FastICA
 from matplotlib.pyplot import MultipleLocator
 import time
-from keras.layers import Input, Dense
-from keras.models import Model
 import numpy as np
-from sklearn.utils import shuffle
-from keras.callbacks import EarlyStopping, ModelCheckpoint
-from keras import regularizers
-from tqdm import tqdm
 from sklearn import random_projection
 import scipy.stats as stats
 from sklearn.cluster import KMeans
 from scipy.sparse.csr import csr_matrix
-from sklearn.preprocessing import OneHotEncoder
 
-from .archetypes import ArchetypalAnalysis
-from .lae import *
+
 
 #import imp
 #imp.reload(lae) # only use in debug / dev mode
@@ -104,7 +96,11 @@ def mf(X, k, alg = 'PCA', display = True, verbose = 0):
 
         AutoEncoder (as well as other NN models, such as MLP) is sensitive to feature scaling, so it is highly recommended to scale your data.
         '''
-
+        try:
+            from .lae import LAE
+        except:
+            raise Exception('LAE requires TF to be installed. \nSkipping LAE.')
+            
         ae = LAE(n_components=k)
         W = ae.fit_transform(X, verbose = verbose)
         H = ae.components_ 
@@ -182,6 +178,7 @@ def mf(X, k, alg = 'PCA', display = True, verbose = 0):
         W = np.eye(k)[W] # convert W to one-hot encoding matrix
 
         H = kmeans.cluster_centers_
+        #from sklearn.preprocessing import OneHotEncoder
         #ohe = OneHotEncoder()
         #W = ohe.fit_transform(W.reshape(-1, 1)).A
         
@@ -207,6 +204,9 @@ def mf(X, k, alg = 'PCA', display = True, verbose = 0):
             plt.show()
         
     elif (alg == ALGS[6]):
+
+        from .archetypes import ArchetypalAnalysis
+
         aa = ArchetypalAnalysis(n_archetypes = k) # tolerance = 0.001, max_iter = 200, C = 0.0001, initialize = 'random', redundancy_try = 30
         aa.fit(X)
         H = aa.archetypes.T
